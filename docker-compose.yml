@@ -1,0 +1,35 @@
+version: '3'
+services:
+  mysql_db:
+    build: ./db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: '1234'
+      MYSQL_DATABASE: 'student_data'
+    ports:
+      - 3308:3306
+    networks:
+      - project_network
+    volumes:
+      - mysql_volume:/var/lib/mysql
+      - mysql_config:/etc/mysql/my.cnf
+
+  web:
+    build: ./app
+    ports: 
+      - 8000:8000
+    depends_on: 
+      - mysql_db
+    networks:
+      - project_network
+
+networks:
+  project_network:
+
+volumes:
+  mysql_volume:
+  mysql_config:
+
+
+
+ 
