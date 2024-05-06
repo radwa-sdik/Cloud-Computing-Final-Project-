@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data</title>
+</head>
+<body style="font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: white;">
+    <div style="width: 80%; margin: auto; overflow: hidden;">
+        <h1 style="color: #162631; text-align: center; margin-bottom: 30px;">Student Data</h1>
+        <table style="width: 100%; margin-bottom: 30px; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="height: 50px; background-color: #2f5b7d; color: white; font-size: 24px;">#</th>
+                    <th style="height: 50px; background-color: #2f5b7d; color: white; font-size: 24px;">ID</th>
+                    <th style="height: 50px; background-color: #2f5b7d; color: white; font-size: 24px;">First Name</th>
+                    <th style="height: 50px; background-color: #2f5b7d; color: white; font-size: 24px;">Last Name</th>
+                    <th style="height: 50px; background-color: #2f5b7d; color: white; font-size: 24px;">Age</th>
+                    <th style="height: 50px; background-color: #2f5b7d; color: white; font-size: 24px;">CGPA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through the student data passed from Flask and add a sequence number -->
+                {% for student in students %}
+                <tr style="text-align: center; padding: 15px; font-size: 18px; background-color: #d0d5dc;">
+                    <td style="background-color: #f2f2f2;">{{ loop.index }}</td>
+                    <td>{{ student[0] }}</td>
+                    <td>{{ student[1] }}</td>
+                    <td>{{ student[2] }}</td>
+                    <td>{{ student[3] }}</td>
+                    <td>{{ student[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
